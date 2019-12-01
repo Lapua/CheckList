@@ -10,7 +10,9 @@ import UIKit
 
 class CheckTableViewController: UITableViewController {
     
-    var text: String = ""
+    var index: Int = 0
+    let check: [[String]] = [["Mac", "iPad", "アクセサリ", "飲み物", "筆箱", "書類", "鍵", "イヤホン"],
+                             ["Mac", "iPad", "アクセサリ", "飲み物", "筆箱", "書類", "鍵", "イヤホン", "教科書"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +33,25 @@ class CheckTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return check[index].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        cell.textLabel?.text = text
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = check[index][indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.accessoryType == UITableViewCell.AccessoryType.none {
+            cell?.accessoryType = .checkmark
+        } else {
+            cell?.accessoryType = .none
+        }
     }
 
     /*

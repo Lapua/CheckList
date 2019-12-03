@@ -42,7 +42,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="チェックリスト" id="C00-VV-YLX">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="0O2-Nf-Ssf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="0O2-Nf-Ssf">
+                            <connections>
+                                <action selector="addButton:" destination="GIa-Kl-PcX" id="Txx-aT-bgy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFv-lc-dqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

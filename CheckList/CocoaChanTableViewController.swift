@@ -10,7 +10,10 @@ import UIKit
 
 class CocoaChanTableViewController: UITableViewController {
     
-    let todo: [String] = ["通常", "火曜日"]
+    var todo: [String] = ["通常", "火曜日"]
+    
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,7 @@ class CocoaChanTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // 編集ボタン追加
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -42,28 +45,27 @@ class CocoaChanTableViewController: UITableViewController {
         return cell
     }
     
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
      // 編集可能にする
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
      // 削除
+            print("delete")
+            todo.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+        }
+//        else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
      // 追加
-        }    
+//        }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
